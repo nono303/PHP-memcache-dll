@@ -10,40 +10,4 @@ http://windows.php.net/downloads/releases/
 
 https://github.com/websupport-sk/pecl-memcache.git
 
------
-
-###### configure --disable-all --enable-cli --enable-zlib --enable-hash --enable-session --without-gd --with-bz2 --enable-memcache=shared
-
-## x86 nts
- - Build type       : Release
- - Thread Safety    : No
- - Compiler         : MSVC14 (Visual C++ 2015)
- - Architecture     : x86
- - Optimization     : PGO disabled
- - Static analyzer  : disabled
-
-## x86 ts
- - Build type       : Release
- - Thread Safety    : Yes
- - Compiler         : MSVC14 (Visual C++ 2015)
- - Architecture     : x86
- - Optimization     : PGO disabled
- - Static analyzer  : disabled
-
-## x64 nts
- - Build type       : Release
- - Thread Safety    : No
- - Compiler         : MSVC14 (Visual C++ 2015)
- - Architecture     : x64
- - Optimization     : PGO disabled
- - Static analyzer  : disabled
-
-## X64 ts
- - Build type       : Release
- - Thread Safety    : Yes
- - Compiler         : MSVC14 (Visual C++ 2015)
- - Architecture     : x64
- - Optimization     : PGO disabled
- - Static analyzer  : disabled
-
-only tested (working) on x64 nts.
+only tested (and working fine) on x64 nts.
