@@ -1,4 +1,5 @@
-# php_memcache.dll compiled with php 7.0.6, php_memcache 3.0.9-dev, VC14 :
+# php_memcache.dll for php 7 
+## VC14 Compiled with php 7.0.6, php_memcache 3.0.9-dev
 
 http://windows.php.net/downloads/php-sdk/
  - 5/7/2016 12:09 AM     38219599 deps-7.0-vc14-x64.7z
@@ -20,6 +21,7 @@ https://github.com/websupport-sk/pecl-memcache.git
  - Architecture     : x86
  - Optimization     : PGO disabled
  - Static analyzer  : disabled
+
 ## x86 ts
  - Build type       : Release
  - Thread Safety    : Yes
@@ -27,6 +29,7 @@ https://github.com/websupport-sk/pecl-memcache.git
  - Architecture     : x86
  - Optimization     : PGO disabled
  - Static analyzer  : disabled
+
 ## x64 nts
  - Build type       : Release
  - Thread Safety    : No
@@ -34,6 +37,7 @@ https://github.com/websupport-sk/pecl-memcache.git
  - Architecture     : x64
  - Optimization     : PGO disabled
  - Static analyzer  : disabled
+
 ## X64 ts
  - Build type       : Release
  - Thread Safety    : Yes
