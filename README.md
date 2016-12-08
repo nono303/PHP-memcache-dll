@@ -10,13 +10,16 @@
  - https://github.com/php/php-src/tree/PHP-7.1.0
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
 
-### Makefile changes
+### Makefile build changes
 * ###### LDFLAGS 
   * `+ /LTCG `
 * ###### CFLAGS
   * `- /guard:cf`
   * `+ /GS- /GL`
 
+_See [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
+
+-----
 Only tested (and working fine) on **x64 nts**.  
 See my ```memcache.ini``` configuration
 
