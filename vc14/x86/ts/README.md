@@ -1,5 +1,4 @@
 ```
-SET CL=/MP /Ox
 configure --disable-all --enable-cli --enable-zlib --enable-hash --enable-session --without-gd --with-bz2 --enable-memcache=shared
 ```
  - Build type       : Release
