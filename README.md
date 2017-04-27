@@ -1,26 +1,27 @@
-# php-7.0.x_memcache.dll
-#### 2016-05-18 MSVC14 update 2 (14.00.23918.0) Compiled with:
+>2017-04-27 : MSVC14 discontinued. Update only MSVC15
+# php-7.1.x_memcache.dll
+#### 2017-04-27 MSVC15 (15.0.26228.9) Compiled with:
 
- - https://github.com/php/php-src/tree/PHP-7.0.6 
+ - https://github.com/php/php-src/tree/PHP-7.1.4 php-7.1.4
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
+   - Fix PHP7 segfault. https://bugs.php.net/bug.php?id=74008 
+
+### Makefile build changes
+* ###### LDFLAGS 
+  * `+ /LTCG /OPT:ICF`
+* ###### CFLAGS
+  * `+ /GS- /GL /Oy-`
 
 # php-7.1.x_memcache.dll
 #### 2016-12-08 MSVC14 update 3 (14.00.25420.1) Compiled with:
 
  - https://github.com/php/php-src/tree/PHP-7.1.0
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
+  
+# php-7.0.x_memcache.dll
+#### 2016-05-18 MSVC14 update 2 (14.00.23918.0) Compiled with:
 
-### Makefile build changes
-* ###### LDFLAGS 
-  * `+ /LTCG `
-* ###### CFLAGS
-  * `- /guard:cf`
-  * `+ /GS- /GL`
-
-# php-7.1.x_memcache.dll
-#### 2016-12-20 MSVC15 RC (15.0.25914.0) Compiled with:
-
- - https://github.com/php/php-src/tree/PHP-7.1 php-7.1.1-dev
+ - https://github.com/php/php-src/tree/PHP-7.0.6 
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
 
 _See [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
