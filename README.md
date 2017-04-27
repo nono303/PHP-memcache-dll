@@ -27,7 +27,13 @@
 _See [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
 
 -----
-Only tested (and working fine) on **x64 nts**.  
+>Only tested (and working fine) on **x64 nts**.
+
+require Redistribuable Microsoft Visual C++ pour Visual Studio 2017 
+
+ - [x86](https://go.microsoft.com/fwlink/?LinkId=746571) 
+ - [x64](https://go.microsoft.com/fwlink/?LinkId=746572)
+ 
 See my ```memcache.ini``` configuration
 
 2016-05-18 : I’ve noticed __2 bugs__ when implementing memcache session.handler
