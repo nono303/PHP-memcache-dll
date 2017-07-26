@@ -1,4 +1,17 @@
 >2017-04-27 : MSVC14 discontinued. Update only MSVC15
+# php-7.2.x_memcache.dll
+#### 2017-07-26 MSVC15 (15.2.26430.16) Compiled with:
+
+ - https://github.com/php/php-src/tree/PHP-7.2 php-7.2-dev
+ - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
+   - Fix PHP7 segfault. https://bugs.php.net/bug.php?id=74008 
+
+### Makefile build changes
+* ###### LDFLAGS 
+  * `+ /LTCG /OPT:ICF`
+* ###### CFLAGS
+  * `+ /GS- /GL /Oy-`
+
 # php-7.1.x_memcache.dll
 #### 2017-04-27 MSVC15 (15.0.26228.9) Compiled with:
 
