@@ -12,15 +12,11 @@
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
    - Fix memcache session handler with two backend servers Fatal Error (out of memory). https://bugs.php.net/bug.php?id=73539
 
-_See [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
+>MSVC14 discontinued. Update only MSVC15
 
------
 >Only tested (and working fine) on **x64 nts**.
 
-require Redistribuable Microsoft Visual C++ pour Visual Studio 2017 
-
- - [x86](https://go.microsoft.com/fwlink/?LinkId=746571) 
- - [x64](https://go.microsoft.com/fwlink/?LinkId=746572)
+>Require Redistribuable [Microsoft Visual C++ pour Visual Studio 2017](https://www.visualstudio.com/fr/downloads/) 
  
 See my ```memcache.ini``` configuration
 
@@ -40,3 +36,4 @@ session.save_handler = user
 auto_prepend_file = c:/path/to/MemcacheSessionHandlerPrepend.php
 ; session.save_path = 
 ```
+_See [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
