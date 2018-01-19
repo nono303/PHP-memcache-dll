@@ -38,7 +38,8 @@ session.save_handler = user
 auto_prepend_file = c:/path/to/MemcacheSessionHandlerPrepend.php
 ; session.save_path = 
 ```
-_See [issue #23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) and [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow _
+
+_See [issue #23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) and [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow_
 
 ----
 
