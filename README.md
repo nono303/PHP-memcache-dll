@@ -22,18 +22,6 @@ Just put in your php.ini something like:
  - https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7 3.0.9
    - Fix memcache session handler with two backend servers Fatal Error (out of memory). https://bugs.php.net/bug.php?id=73539
 
-----
-
->MSVC14 discontinued. Update only MSVC15
-
->Only tested (and working fine) on **x64 nts**.
-
->Require Redistribuable [Microsoft Visual C++ pour Visual Studio 2017](https://www.visualstudio.com/fr/downloads/) 
- 
-See my ```memcache.ini``` configuration
-
-----
-
 2016-05-18 : I’ve noticed __2 bugs__ when implementing memcache session.handler for 
 ```
 session.save_handler = memcache
@@ -51,3 +39,13 @@ auto_prepend_file = c:/path/to/MemcacheSessionHandlerPrepend.php
 ; session.save_path = 
 ```
 _See [issue #23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) and [discution](http://stackoverflow.com/questions/34952502/memcache-for-php7-on-windows/) on stackoverflow _
+
+----
+
+>MSVC14 discontinued. Update only MSVC15
+
+>Only tested (and working fine) on **x64 nts**.
+
+>Require Redistribuable [Microsoft Visual C++ pour Visual Studio 2017](https://www.visualstudio.com/fr/downloads/) 
+ 
+See my ```memcache.ini``` configuration
