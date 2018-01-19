@@ -1,13 +1,12 @@
 <?php
-	// see https://github.com/symfony/http-foundation/blob/master/Session/Storage/Handler/MemcachedSessionHandler.php
 	class MemcacheSessionHandler implements \SessionHandlerInterface {
 		private $memcache;
 		private $ttl;
 		private $prefix;
 
 		public function __construct(array $options = array() ) {
-			$this->memcache = new Memcache();
-			$this->memcache->addServer('127.0.0.1', 11211);
+			$this->memcache = new MemcachePool();
+			$this->memcached->connect('127.0.0.1', 11211, $udp_port = 0, $persistent = true, $weight = 1, $timeout = 1, $retry_interval = 15);
 			if ( $diff = array_diff( array_keys( $options ), array( 'prefix', 'expiretime' ) ) ) 
 				throw new \InvalidArgumentException( sprintf('The following options are not supported "%s"',implode( ', ', $diff )));
 			$this->ttl    = isset( $options[ 'expiretime' ] ) ? (int)$options[ 'expiretime' ] : ini_get("session.gc_maxlifetime");
@@ -31,7 +30,7 @@
 			http://php.net/manual/fr/memcache.set.php
 			http://php.net/manual/fr/memcached.set.php
 			*/
-			return $this->memcache->set( $this->prefix . $sessionId, $data, 0, time() + $this->ttl );
+			return $this->memcache->set( $this->prefix . $sessionId, $data, $flag = 0,, time() + $this->ttl );
 		}
 
 		public function destroy( $sessionId ) {
