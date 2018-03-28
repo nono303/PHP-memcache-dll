@@ -1,7 +1,7 @@
 # php-7.2.x_memcache.dll
-#### 2018-01-19 MSVC 15.5.4 (19.12.25834) - Window Kit 10.0.16299.0 - Compiled with:
+#### 2018-03-28 MSVC 15.6.4 / 19.13.26129 - Window Kit 10.0.16299.0 - Compiled with:
 
- - [PHP 7.2.1](https://github.com/php/php-src/tree/PHP-7.2.1)
+ - [PHP 7.2.4](https://github.com/php/php-src/tree/php-7.2.4)
  - [pecl-memcache 3.0.9](https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7)
    - [Fix memcache session handler with two backend servers Fatal Error (out of memory)](https://bugs.php.net/bug.php?id=73539)
    - Patch with pull [#26](https://github.com/websupport-sk/pecl-memcache/pull/26/) to fix issue [#23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) Failed to read session data with 7.1/7.2
