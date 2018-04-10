@@ -6,7 +6,7 @@
 
 		public function __construct(array $options = array() ) {
 			$this->memcache = new MemcachePool();
-			$this->memcached->connect('127.0.0.1', 11211, $udp_port = 0, $persistent = true, $weight = 1, $timeout = 1, $retry_interval = 15);
+			$this->memcache->connect('127.0.0.1', 11211, $udp_port = 0, $persistent = true, $weight = 1, $timeout = 1, $retry_interval = 15);
 			if ( $diff = array_diff( array_keys( $options ), array( 'prefix', 'expiretime' ) ) ) 
 				throw new \InvalidArgumentException( sprintf('The following options are not supported "%s"',implode( ', ', $diff )));
 			$this->ttl    = isset( $options[ 'expiretime' ] ) ? (int)$options[ 'expiretime' ] : ini_get("session.gc_maxlifetime");
