@@ -30,7 +30,7 @@
 			http://php.net/manual/fr/memcache.set.php
 			http://php.net/manual/fr/memcached.set.php
 			*/
-			return $this->memcache->set( $this->prefix . $sessionId, $data, $flag = 0,, time() + $this->ttl );
+			return $this->memcache->set( $this->prefix . $sessionId, $data, $flag = 0, time() + $this->ttl );
 		}
 
 		public function destroy( $sessionId ) {
