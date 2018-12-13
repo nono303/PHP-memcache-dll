@@ -1,8 +1,40 @@
+# php-7.3.x_memcache.dll
+**2018-12-13**
+
+**compiled with:**  
+- [php-src 7.3.0 tag](https://github.com/php/php-src/tree/php-7.3.0)  
+- [memcache 3.0.9 NON_BLOCKING_IO_php7](https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7)   _shared_
+   - [Fix memcache session handler with two backend servers Fatal Error (out of memory)](https://bugs.php.net/bug.php?id=73539)  
+   - Patch with pull [#26](https://github.com/websupport-sk/pecl-memcache/pull/26/) to fix issue [#23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) Failed to read session data with 7.1/7.2  
+   - Patch memcache.c according to [changes of Zend API in PHP 7.3](https://cismon.net/2018/02/06/Changes-of-Zend-API-in-PHP-7.3/)  
+- MSVC 15.9.4 / 19.16.27025.1  
+- Window Kit 10.0.17134.0  
+- [php-sdk-binary-tools 2.1.9 tag](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.1.9)  
+
+**Dependencies**
+
+- dll (non debug) from deps [x86](http://windows.php.net/downloads/php-sdk/deps/vc15/x86/) - [x64](http://windows.php.net/downloads/php-sdk/deps/vc15/x64/)
+- MSVC15 redist 14.16.27012 [x86](https://aka.ms/vs/15/release/VC_redist.x86.exe) - [x64](https://aka.ms/vs/15/release/VC_redist.x64.exe)
+
+**CFLAGS add:** 
+
+- [/GL](https://msdn.microsoft.com/en-us/library/0zza0de8.aspx)
+- [/GS-](https://msdn.microsoft.com/en-us/library/8dbf701c.aspx)
+- [/Oy-](https://msdn.microsoft.com/en-us/library/2kxx5t2c.aspx)
+
+**LDFLAGS add:** 
+
+- [/LTCG ](https://msdn.microsoft.com/en-us/library/xbf3tbeh.aspx)
+- [/NODEFAULTLIB](https://msdn.microsoft.com/en-us/library/3tz4da4a.aspx):[libcmt.lib ](https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx)
+- [/OPT:ICF](https://msdn.microsoft.com/en-us/library/bxwfs976.aspx)
+
+----
+
 # php-7.2.x_memcache.dll
-**2018-11-14*
+**2018-12-06**
 
 **compiled with:**
-- [php-src 7.2.12 tag](https://github.com/php/php-src/tree/php-7.2.12)
+- [php-src 7.2.13 tag](https://github.com/php/php-src/tree/php-7.2.13)
 - [memcache 3.0.9 NON_BLOCKING_IO_php7](https://github.com/websupport-sk/pecl-memcache/tree/NON_BLOCKING_IO_php7) _shared_
    - [Fix memcache session handler with two backend servers Fatal Error (out of memory)](https://bugs.php.net/bug.php?id=73539)
    - Patch with pull [#26](https://github.com/websupport-sk/pecl-memcache/pull/26/) to fix issue [#23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) Failed to read session data with 7.1/7.2
