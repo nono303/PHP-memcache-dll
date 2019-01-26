@@ -1,5 +1,5 @@
 # php-7.3.x_memcache.dll
-**2019-01-08**
+**2019-01-22**
 
 **compiled with:**  
 - [php-src 7.3.1 tag](https://github.com/php/php-src/tree/php-7.3.0)  
@@ -7,14 +7,14 @@
    - [Fix memcache session handler with two backend servers Fatal Error (out of memory)](https://bugs.php.net/bug.php?id=73539)  
    - Patch with pull [#26](https://github.com/websupport-sk/pecl-memcache/pull/26/) to fix issue [#23](https://github.com/websupport-sk/pecl-memcache/issues/23#issuecomment-327702906) Failed to read session data with 7.1/7.2  
    - Patch memcache.c according to [changes of Zend API in PHP 7.3](https://cismon.net/2018/02/06/Changes-of-Zend-API-in-PHP-7.3/)  
-- MSVC 15.9.4 / 19.16.27025.1  
-- Window Kit 10.0.17134.0  
-- [php-sdk-binary-tools 2.1.10 beta 1 tag](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.1.10beta1) _staging_ 
+- MSVC 15.9.5 / 19.16.27026.1
+- Window Kit 10.0.17763.0 
+- [php-sdk-binary-tools 2.2.0 beta1 tag](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta1) _staging_ 
 
 **Dependencies**
 
-- dll (non debug) from deps [x86](http://windows.php.net/downloads/php-sdk/deps/vc15/x86/) - [x64](http://windows.php.net/downloads/php-sdk/deps/vc15/x64/)
-- MSVC15 redist 14.16.27012 [x86](https://aka.ms/vs/15/release/VC_redist.x86.exe) - [x64](https://aka.ms/vs/15/release/VC_redist.x64.exe)
+- dll (**staging** non debug) from deps [x86](http://windows.php.net/downloads/php-sdk/deps/vc15/x86/) - [x64](http://windows.php.net/downloads/php-sdk/deps/vc15/x64/)
+- MSVC15 redist 14.16.27024 [x86](https://aka.ms/vs/15/release/VC_redist.x86.exe) - [x64](https://aka.ms/vs/15/release/VC_redist.x64.exe)
 
 **CFLAGS add:** 
 
