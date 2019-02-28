@@ -1,6 +1,6 @@
 # pecl-memcache for PHP 7.X - Windows MSVC binaries #
 - https://github.com/websupport-sk/pecl-memcache
->Personally use (and working fine...) **x64 avx nts** version.
+> Personally use (and working fine...) **x64 avx nts** version.  
 > See my ```memcache.ini``` configuration
 
 ----
