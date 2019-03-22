@@ -5,12 +5,12 @@
 
 ----
 # php-7.3.x_memcache.dll
-2019-03-08
-> **Version [4.0.1](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.1-php73) `NON_BLOCKING_IO_php7`**
+2019-03-22
+> **Version [4.0.2](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.1-php73) `NON_BLOCKING_IO_php7`**
 
 - [php-src 7.3.3](https://github.com/php/php-src/tree/php-7.3.3)  
 - [php-sdk-binary-tools 2.2.0 beta3](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta3)
-- MSVC 15.9.8 / 19.16.27027.1
+- MSVC 15.9.9 / 19.16.27027.1
   - MSVC redist 14.16.27024.1 [x86](https://aka.ms/vs/15/release/VC_redist.x86.exe) - [x64](https://aka.ms/vs/15/release/VC_redist.x64.exe)
 - Window Kit 10.0.17763.0
 - [AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases for specified directory  
