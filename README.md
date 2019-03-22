@@ -6,7 +6,7 @@
 ----
 # php-7.3.x_memcache.dll
 2019-03-22
-> **Version [4.0.2](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.1-php73) `NON_BLOCKING_IO_php7`**
+> **Version [4.0.2](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.2-php73) `NON_BLOCKING_IO_php7`**
 
 - [php-src 7.3.3](https://github.com/php/php-src/tree/php-7.3.3)  
 - [php-sdk-binary-tools 2.2.0 beta3](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta3)
