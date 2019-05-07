@@ -16,12 +16,12 @@
 - MSVC 15.9.11 / 14.16.27030.1
 - Window Kit 10.0.17763.0
 >
-> 2019-04-30 **VS16**
-- MSVC 16.1.0 preview 2.0 / 14.20.27607.1
+> 2019-05-07 **VS16**
+- MSVC 16.1.0 preview 3.0 / 14.21.27619.1
 - Window Kit 10.0.18362.0  
 
 #### [Dependencies](https://windows.php.net/downloads/php-sdk/deps/vc15/) - *[staging](https://windows.php.net/downloads/php-sdk/deps/series/)*
-- MSVC redist 14.20.27607 [x86](https://download.visualstudio.microsoft.com/download/pr/1a6314bb-c949-42e9-925f-1c0bf4eb00de/41482628dd05373a7c24b0d43ae1753e/vc_redist.x86.exe) - [x64](https://download.visualstudio.microsoft.com/download/pr/0eac0881-2173-4d79-bee7-fda4dccb0005/aa1dfcd3b6c304fa8b8b57d1e3d6ae63/vc_redist.x64.exe)
+- MSVC redist 14.21.27619 [x86](https://download.visualstudio.microsoft.com/download/pr/1a6314bb-c949-42e9-925f-1c0bf4eb00de/41482628dd05373a7c24b0d43ae1753e/vc_redist.x86.exe) - [x64](https://download.visualstudio.microsoft.com/download/pr/0eac0881-2173-4d79-bee7-fda4dccb0005/aa1dfcd3b6c304fa8b8b57d1e3d6ae63/vc_redist.x64.exe)
 
 #### CFLAGS add:
 
