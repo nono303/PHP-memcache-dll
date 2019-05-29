@@ -34,7 +34,7 @@
 #### LDFLAGS add:
 
 - [/LTCG ](https://msdn.microsoft.com/en-us/library/xbf3tbeh.aspx)
-- [/NODEFAULTLIB](https://msdn.microsoft.com/en-us/library/3tz4da4a.aspx):[libcmt.lib ](https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx)
+- [/NODEFAULTLIB](https://msdn.microsoft.com/en-us/library/3tz4da4a.aspx):[libcmt.lib ](https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx) /NODEFAULTLIB:MSVCRTD.lib
 - [/OPT:ICF](https://msdn.microsoft.com/en-us/library/bxwfs976.aspx)
 
 ----
