@@ -4,24 +4,25 @@
 > See ```memcache.ini``` configuration file exemple
 
 ----
-## Version [4.0.3](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.3) `NON_BLOCKING_IO_php7`
+## 2019-05-29 Version [4.0.4](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.4) `NON_BLOCKING_IO_php7`
 
-- `php-7.3.x_memcache.dll` with [php-src 7.3.5](https://github.com/php/php-src/tree/php-7.3.5)  
+- `php-7.3.x_memcache.dll` with [php-src 7.3.6](https://github.com/php/php-src/tree/php-7.3.6)
+>
+- MSVC 16.2.0 preview 1.0 / 14.22.27706.1
+- Window Kit 10.0.18362.0  
+
+## 2019-04-08 Version [4.0.3](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.3) `NON_BLOCKING_IO_php7`
+
 - `php-7.2.x_memcache.dll` with [php-src 7.2.17](https://github.com/php/php-src/tree/php-7.2.17)  
 - `php-7.1.x_memcache.dll` with [php-src 7.1.28](https://github.com/php/php-src/tree/php-7.1.28)  
 - [php-sdk-binary-tools 2.2.0 beta5](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta5)
 - [AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases for specified directory  
 > 
-> 2019-04-08 **VC15**
 - MSVC 15.9.11 / 14.16.27030.1
 - Window Kit 10.0.17763.0
->
-> 2019-05-07 **VS16**
-- MSVC 16.1.0 preview 3.0 / 14.21.27619.1
-- Window Kit 10.0.18362.0  
 
 #### [Dependencies](https://windows.php.net/downloads/php-sdk/deps/vc15/) - *[staging](https://windows.php.net/downloads/php-sdk/deps/series/)*
-- MSVC redist 14.21.27619 [x86](https://download.visualstudio.microsoft.com/download/pr/1a6314bb-c949-42e9-925f-1c0bf4eb00de/41482628dd05373a7c24b0d43ae1753e/vc_redist.x86.exe) - [x64](https://download.visualstudio.microsoft.com/download/pr/0eac0881-2173-4d79-bee7-fda4dccb0005/aa1dfcd3b6c304fa8b8b57d1e3d6ae63/vc_redist.x64.exe)
+- MSVC redist 14.21.27619 [x86](https://download.visualstudio.microsoft.com/download/pr/59e7fad0-c074-49e8-a815-77cb7083f910/9d4c6916d07433832c836646e65e81df/vc_redist.x86.exe) - [x64](https://download.visualstudio.microsoft.com/download/pr/b28932f6-8d79-46f1-8385-e0a8bdf3c1e0/1adf822fa2d810d2c736bf97efe84e34/vc_redist.x64.exe)
 
 #### CFLAGS add:
 
