@@ -1,29 +1,29 @@
-# pecl-memcache for PHP 7.X - Windows MSVC binaries #
+# pecl-memcache for PHP 7.X - Windows MSVC binaries (dll)#
 - https://github.com/websupport-sk/pecl-memcache
 > Personally use (and working fine...) **x64 avx nts** version.  
 > See ```memcache.ini``` configuration file exemple
 
 ----
-## 2019-05-29 Version [4.0.4](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.4) `NON_BLOCKING_IO_php7`
-
-- `php-7.3.x_memcache.dll` with [php-src 7.3.6](https://github.com/php/php-src/tree/php-7.3.6)
->
-- MSVC 16.2.0 preview 1.0 / 14.22.27706.1
-- Window Kit 10.0.18362.0  
-
-## 2019-04-08 Version [4.0.3](https://github.com/websupport-sk/pecl-memcache/tree/v4.0.3) `NON_BLOCKING_IO_php7`
-
-- `php-7.2.x_memcache.dll` with [php-src 7.2.17](https://github.com/php/php-src/tree/php-7.2.17)  
-- `php-7.1.x_memcache.dll` with [php-src 7.1.28](https://github.com/php/php-src/tree/php-7.1.28)  
+## Version ["459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) `NON_BLOCKING_IO_php7`  
+### Fix crash when serialization fails [#53](https://github.com/websupport-sk/pecl-memcache/pull/53) 2019-06-17  
 > 
-- MSVC 15.9.11 / 14.16.27030.1
-- Window Kit 10.0.17763.0
+> 2019-07-16
+- Visual Studio 2019 v16.1.6  
+- VS16 : toolset 14.21.27702  
+- VC15 : toolset 14.16.27023  
+- Window Kit 10.0.18362.0    
+----  
+- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__   
+- MSVC [redist](https://gitlab.com/stdout12/adns/tags)    
+>
+- `php-7.3.x_memcache.dll` with [php-src 7.3.7](https://github.com/php/php-src/tree/php-7.3.7)  
+- `php-7.2.x_memcache.dll` with [php-src 7.2.18](https://github.com/php/php-src/tree/php-7.2.18)    
+- `php-7.1.x_memcache.dll` with [php-src 7.1.30](https://github.com/php/php-src/tree/php-7.1.30)    
 
 #### Dependencies
-- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
-- MSVC redist 14.22.27706 [x86](https://gitlab.com/stdout12/adns/tags) - [x64](https://gitlab.com/stdout12/adns/tags)
-- [php-sdk-binary-tools 2.2.0 beta5](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta5)
-- [php-sdk vs16](https://windows.php.net/downloads/php-sdk/deps/vs16/)
+
+- [php-sdk-binary-tools 2.2.0 beta6](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta6)
+- [php-sdk vs16 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/)
 
 #### CFLAGS add:
 
