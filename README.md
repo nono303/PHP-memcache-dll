@@ -7,18 +7,18 @@
 ## Version ["459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) `NON_BLOCKING_IO_php7`  
 ### Fix crash when serialization fails [#53](https://github.com/websupport-sk/pecl-memcache/pull/53) 2019-06-17  
 > 
-> 2019-07-16
-- Visual Studio 2019 v16.1.6  
-- VS16 : toolset 14.21.27702  
-- VC15 : toolset 14.16.27023  
-- Window Kit 10.0.18362.0    
-----  
-- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__   
-- MSVC [redist](https://gitlab.com/stdout12/adns/tags)    
+> 2019-08-07
+- Visual Studio 2019 v16.2
+- VS16 : toolset 14.22.27905
+- VC15 : toolset 14.16.27023
+- Window Kit 10.0.18362.0  
+----
+- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
+- MSVC redist [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) 
 >
-- `php-7.3.x_memcache.dll` with [php-src 7.3.7](https://github.com/php/php-src/tree/php-7.3.7)  
-- `php-7.2.x_memcache.dll` with [php-src 7.2.18](https://github.com/php/php-src/tree/php-7.2.18)    
-- `php-7.1.x_memcache.dll` with [php-src 7.1.30](https://github.com/php/php-src/tree/php-7.1.30)    
+- `php-7.3.x_memcache.dll` with [php-src 7.3.8](https://github.com/php/php-src/tree/php-7.3.8)  
+- `php-7.2.x_memcache.dll` with [php-src 7.2.21](https://github.com/php/php-src/tree/php-7.2.21)  
+- `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31)  
 
 #### Dependencies
 

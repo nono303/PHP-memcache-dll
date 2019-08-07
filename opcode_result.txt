@@ -1,0 +1,57 @@
+	2019-08-07
+php-7.0.x_memcache.dll  /vc14/x64/nts/      x64
+php-7.1.x_memcache.dll  /vc14/x64/nts/      x64 ltcg
+php-7.0.x_memcache.dll  /vc14/x64/ts/       x64
+php-7.1.x_memcache.dll  /vc14/x64/ts/       x64 ltcg
+php-7.0.x_memcache.dll  /vc14/x86/nts/      x86
+php-7.1.x_memcache.dll  /vc14/x86/nts/      x86 ltcg
+php-7.0.x_memcache.dll  /vc14/x86/ts/       x86
+php-7.1.x_memcache.dll  /vc14/x86/ts/       x86 ltcg
+php-7.1.x_memcache.dll  /vc15/x64/nts/avx/  x64 ltcg avx (248)
+php-7.2.x_memcache.dll  /vc15/x64/nts/avx/  x64 ltcg avx (256)
+php-7.3.x_memcache.dll  /vc15/x64/nts/avx/  x64 ltcg avx (230)
+php-7.1.x_memcache.dll  /vc15/x64/nts/      x64 ltcg
+php-7.2.x_memcache.dll  /vc15/x64/nts/      x64 ltcg
+php-7.3.x_memcache.dll  /vc15/x64/nts/      x64 ltcg
+php-7.1.x_memcache.dll  /vc15/x64/ts/avx/   x64 ltcg avx (240)
+php-7.2.x_memcache.dll  /vc15/x64/ts/avx/   x64 ltcg avx (248)
+php-7.3.x_memcache.dll  /vc15/x64/ts/avx/   x64 ltcg avx (225)
+php-7.1.x_memcache.dll  /vc15/x64/ts/       x64 ltcg
+php-7.2.x_memcache.dll  /vc15/x64/ts/       x64 ltcg
+php-7.3.x_memcache.dll  /vc15/x64/ts/       x64 ltcg
+php-7.1.x_memcache.dll  /vc15/x86/nts/avx/  x86 ltcg avx (237)
+php-7.2.x_memcache.dll  /vc15/x86/nts/avx/  x86 ltcg avx (230)
+php-7.3.x_memcache.dll  /vc15/x86/nts/avx/  x86 ltcg avx (224)
+php-7.1.x_memcache.dll  /vc15/x86/nts/      x86 ltcg
+php-7.2.x_memcache.dll  /vc15/x86/nts/      x86 ltcg
+php-7.3.x_memcache.dll  /vc15/x86/nts/      x86 ltcg
+php-7.1.x_memcache.dll  /vc15/x86/ts/avx/   x86 ltcg avx (237)
+php-7.2.x_memcache.dll  /vc15/x86/ts/avx/   x86 ltcg avx (230)
+php-7.3.x_memcache.dll  /vc15/x86/ts/avx/   x86 ltcg avx (224)
+php-7.1.x_memcache.dll  /vc15/x86/ts/       x86 ltcg
+php-7.2.x_memcache.dll  /vc15/x86/ts/       x86 ltcg
+php-7.3.x_memcache.dll  /vc15/x86/ts/       x86 ltcg
+php-7.1.x_memcache.dll  /vs16/x64/nts/avx/  x64 ltcg avx (268)
+php-7.2.x_memcache.dll  /vs16/x64/nts/avx/  x64 ltcg avx (270)
+php-7.3.x_memcache.dll  /vs16/x64/nts/avx/  x64 ltcg avx (246)
+php-7.1.x_memcache.dll  /vs16/x64/nts/      x64 ltcg
+php-7.2.x_memcache.dll  /vs16/x64/nts/      x64 ltcg
+php-7.3.x_memcache.dll  /vs16/x64/nts/      x64 ltcg
+php-7.1.x_memcache.dll  /vs16/x64/ts/avx/   x64 ltcg avx (248)
+php-7.2.x_memcache.dll  /vs16/x64/ts/avx/   x64 ltcg avx (250)
+php-7.3.x_memcache.dll  /vs16/x64/ts/avx/   x64 ltcg avx (229)
+php-7.1.x_memcache.dll  /vs16/x64/ts/       x64 ltcg
+php-7.2.x_memcache.dll  /vs16/x64/ts/       x64 ltcg
+php-7.3.x_memcache.dll  /vs16/x64/ts/       x64 ltcg
+php-7.1.x_memcache.dll  /vs16/x86/nts/avx/  x86 ltcg avx (243)
+php-7.2.x_memcache.dll  /vs16/x86/nts/avx/  x86 ltcg avx (244)
+php-7.3.x_memcache.dll  /vs16/x86/nts/avx/  x86 ltcg avx (236)
+php-7.1.x_memcache.dll  /vs16/x86/nts/      x86 ltcg
+php-7.2.x_memcache.dll  /vs16/x86/nts/      x86 ltcg
+php-7.3.x_memcache.dll  /vs16/x86/nts/      x86 ltcg
+php-7.1.x_memcache.dll  /vs16/x86/ts/avx/   x86 ltcg avx (236)
+php-7.2.x_memcache.dll  /vs16/x86/ts/avx/   x86 ltcg avx (237)
+php-7.3.x_memcache.dll  /vs16/x86/ts/avx/   x86 ltcg avx (229)
+php-7.1.x_memcache.dll  /vs16/x86/ts/       x86 ltcg
+php-7.2.x_memcache.dll  /vs16/x86/ts/       x86 ltcg
+php-7.3.x_memcache.dll  /vs16/x86/ts/       x86 ltcg
