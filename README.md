@@ -6,23 +6,30 @@
 ----
 ## Version ["459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) `NON_BLOCKING_IO_php7`  
 ### Fix crash when serialization fails [#53](https://github.com/websupport-sk/pecl-memcache/pull/53) 2019-06-17  
-> 
-> 2019-08-07
-- Visual Studio 2019 v16.2
-- VS16 : toolset 14.22.27905
-- VC15 : toolset 14.16.27023
-- Window Kit 10.0.18362.0  
-----
-- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
-- MSVC redist [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) 
 >
-- `php-7.3.x_memcache.dll` with [php-src 7.3.8](https://github.com/php/php-src/tree/php-7.3.8)  
-- `php-7.2.x_memcache.dll` with [php-src 7.2.21](https://github.com/php/php-src/tree/php-7.2.21)  
-- `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31)  
-
+> 2019-11-29
+> - `php-7.4.x_memcache.dll` with [php-src 7.4.0](https://github.com/php/php-src/tree/php-7.4.0)  
+>   - Visual Studio 2019 v16.3.10
+>   - VS16 14.23.28105
+>   - VC15 14.16.27023
+>   - Window Kit 10.0.18362.1
+>   2019-08-07
+>
+> 2019-08-07
+>
+> - `php-7.3.x_memcache.dll` with [php-src 7.3.8](https://github.com/php/php-src/tree/php-7.3.8)  
+> - `php-7.2.x_memcache.dll` with [php-src 7.2.21](https://github.com/php/php-src/tree/php-7.2.21)  
+> - `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31)  
+>   - Visual Studio 2019 v16.2
+>   - VS16 14.22.27905
+>   - VC15 14.16.27023
+>   - Window Kit 10.0.18362.0  
+----
+- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__, SSE2 for others
+- MSVC redist [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) 
 #### Dependencies
 
-- [php-sdk-binary-tools 2.2.0 beta6](https://github.com/Microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0beta6)
+- [php-sdk-binary-tools 2.2.0](https://github.com/microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0)
 - [php-sdk vs16 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/)
 
 #### CFLAGS add:
