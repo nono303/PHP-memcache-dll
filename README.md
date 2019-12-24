@@ -1,25 +1,28 @@
-# pecl-memcache for PHP 7.X - Windows MSVC binaries (dll)
-- https://github.com/websupport-sk/pecl-memcache
+# PHP 7.x pecl-memcache Windows binaries
+### `NON_BLOCKING_IO_php7`
+### `VC15 & VS16`
+- **src**: https://github.com/websupport-sk/pecl-memcache
+- **doc:** https://www.php.net/manual/en/book.memcache.php
 > Personally use (and working fine...) **x64 avx nts** version.  
 > See ```memcache.ini``` configuration file exemple
 
 ----
-## Version ["459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) `NON_BLOCKING_IO_php7`  
+## Version [4.0.5.2 "baec8a2"](https://github.com/websupport-sk/pecl-memcache/commit/baec8a29aa48064c1c9bb540749263cbc14f21ef)  
+>2019-12-24
+> 
+> - `php-7.4.x_memcache.dll` with [php-src 7.4.1](https://github.com/php/php-src/tree/php-7.4.1)  
+> - `php-7.3.x_memcache.dll` with [php-src 7.3.13](https://github.com/php/php-src/tree/php-7.3.13)  
+> - `php-7.2.x_memcache.dll` with [php-src 7.2.26](https://github.com/php/php-src/tree/php-7.2.26)  
+>   - Visual Studio 2019 v16.4.2
+>   - VS16 : toolset 14.24.28314
+>   - VC15 : toolset 14.16.27023
+>   - Window Kit 10.1.18362.1
+
+## Version [4.0.4 "459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) ![](https://placehold.it/15/f03c15/000000?text=+) _discontinued_
 ### Fix crash when serialization fails [#53](https://github.com/websupport-sk/pecl-memcache/pull/53) 2019-06-17  
->
-> 2019-11-29
-> - `php-7.4.x_memcache.dll` with [php-src 7.4.0](https://github.com/php/php-src/tree/php-7.4.0)  
->   - Visual Studio 2019 v16.3.10
->   - VS16 14.23.28105
->   - VC15 14.16.27023
->   - Window Kit 10.0.18362.1
->   2019-08-07
->
 > 2019-08-07
 >
-> - `php-7.3.x_memcache.dll` with [php-src 7.3.8](https://github.com/php/php-src/tree/php-7.3.8)  
-> - `php-7.2.x_memcache.dll` with [php-src 7.2.21](https://github.com/php/php-src/tree/php-7.2.21)  
-> - `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31)  
+> - `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31) 
 >   - Visual Studio 2019 v16.2
 >   - VS16 14.22.27905
 >   - VC15 14.16.27023
@@ -30,7 +33,7 @@
 #### Dependencies
 
 - [php-sdk-binary-tools 2.2.0](https://github.com/microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0)
-- [php-sdk vs16 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/)
+- [php-sdk 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/)
 
 #### CFLAGS add:
 
