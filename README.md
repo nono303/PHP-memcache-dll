@@ -7,29 +7,37 @@
 > See ```memcache.ini``` configuration file exemple
 
 ----
-## Version [4.0.5.2 "baec8a2"](https://github.com/websupport-sk/pecl-memcache/commit/baec8a29aa48064c1c9bb540749263cbc14f21ef)  
->2019-12-24
-> 
-> - `php-7.4.x_memcache.dll` with [php-src 7.4.1](https://github.com/php/php-src/tree/php-7.4.1)  
-> - `php-7.3.x_memcache.dll` with [php-src 7.3.13](https://github.com/php/php-src/tree/php-7.3.13)  
-> - `php-7.2.x_memcache.dll` with [php-src 7.2.26](https://github.com/php/php-src/tree/php-7.2.26)  
->   - Visual Studio 2019 v16.4.2
->   - VS16 : toolset 14.24.28314
->   - VC15 : toolset 14.16.27023
->   - Window Kit 10.1.18362.1
+## Version [4.0.5.2 "baec8a2-pr71"](https://github.com/websupport-sk/pecl-memcache/pull/71)  
+###  Use `zend_bool` for ini bool settings [pr71](https://github.com/websupport-sk/pecl-memcache/pull/71) < _Bug with prefix_host_key [#56](https://github.com/websupport-sk/pecl-memcache/issues/56)_
 
-## Version [4.0.4 "459ad85"](https://github.com/websupport-sk/pecl-memcache/commit/459ad858a5b5c55bd7346afa27793ffcad58562c) ![](https://placehold.it/15/f03c15/000000?text=+) _discontinued_
-### Fix crash when serialization fails [#53](https://github.com/websupport-sk/pecl-memcache/pull/53) 2019-06-17  
-> 2019-08-07
->
-> - `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31) 
->   - Visual Studio 2019 v16.2
->   - VS16 14.22.27905
->   - VC15 14.16.27023
->   - Window Kit 10.0.18362.0  
+​	_see [patch](https://github.com/nono303/PHP7-memcache-dll/blob/master/pr71.patch)_
+
+> 2020-08-26
+
+- VS16 : toolset 14.27.29016
+- VC15 : toolset 14.16.27012
+  - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
+- Window Kit 10.0.19041.0
+- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
+- `php-7.4.x_memcache.dll` with [php-src 7.4.9](https://github.com/php/php-src/tree/php-7.4.9)  
+- `php-7.3.x_memcache.dll` with [php-src 7.3.21](https://github.com/php/php-src/tree/php-7.3.21)  
+- `php-7.2.x_memcache.dll` with [php-src 7.2.33](https://github.com/php/php-src/tree/php-7.2.33)  
+- `php-7.1.x_memcache.dll` with [php-src 7.1.31](https://github.com/php/php-src/tree/php-7.1.31) 
+
+## ![](https://placehold.it/15/f03c15/000000?text=+) MSVC14 _discontinued_ 
+
+### [3.0.9-dev](https://github.com/websupport-sk/pecl-memcache/commit/4991c2fff22d00dc81014cc92d2da7077ef4bc86)
+
+> 2016-12-08
+
+- `php-7.1.x_memcache.dll` with [php-src 7.1.0](https://github.com/php/php-src/tree/php-7.1.0) 
+- `php-7.0.x_memcache.dll` with [php-src 7.0.6](https://github.com/php/php-src/tree/php-7.0.6) 
+
 ----
-- **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__, SSE2 for others
-- MSVC redist [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) 
+#### **Build Scripts** 
+
+- [@nono303/win-build-scripts](https://github.com/nono303/win-build-scripts)
+
 #### Dependencies
 
 - [php-sdk-binary-tools 2.2.0](https://github.com/microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0)
@@ -38,8 +46,9 @@
 #### CFLAGS add:
 
 - [/GL](https://msdn.microsoft.com/en-us/library/0zza0de8.aspx)
-- [/GS-](https://msdn.microsoft.com/en-us/library/8dbf701c.aspx)
-- [/Oy-](https://msdn.microsoft.com/en-us/library/2kxx5t2c.aspx)
+- MD
+- /Zi
+- /O2
 
 #### LDFLAGS add:
 
