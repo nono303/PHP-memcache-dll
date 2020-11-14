@@ -54,6 +54,7 @@
 
 - Look at `php_info()` 
   ![image-20201114113957010](README_2.png)
+
 - Look at [bininfo.csv](./bininfo.csv)
 
 #### **Build Scripts** 
