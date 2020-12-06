@@ -1,0 +1,28 @@
+diff --git a/src/memcache_binary_protocol.c b/src/memcache_binary_protocol.c
+index 707b351..60d828f 100644
+--- a/src/memcache_binary_protocol.c
++++ b/src/memcache_binary_protocol.c
+@@ -26,7 +26,7 @@
+ #define MMC_DEBUG 0
+ 
+ #ifdef PHP_WIN32
+-#include <win32/php_stdint.h>
++#include <main/php_stdint.h> 
+ #include <winsock2.h>
+ #else
+ #include <stdint.h>
+diff --git a/src/memcache_pool.h b/src/memcache_pool.h
+index cb3d086..402372f 100644
+--- a/src/memcache_pool.h
++++ b/src/memcache_pool.h
+@@ -35,7 +35,7 @@
+ #endif
+ 
+ #ifdef PHP_WIN32
+-#include <win32/php_stdint.h>
++#include <main/php_stdint.h> 
+ #else
+ #include <stdint.h>
+ #endif
+diff --git a/src/php_memcache.h b/src/php_memcache.h
+index 4181849..4d1a89d 100644
