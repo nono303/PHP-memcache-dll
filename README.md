@@ -7,22 +7,22 @@
 > See [memcache.ini](memcache.ini) configuration file exemple
 
 ## `VC15 & VS16`
-- VS16 : toolset 14.28.29333
+- VS16 : toolset 14.29.30037
 - VC15 : toolset 14.16.27023
   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 - Window Kit 10.0.19041.0
 - **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
 
-### Version 8.1-dev "[e014963](https://github.com/websupport-sk/pecl-memcache/commit/e014963c1360d764e3678e91fb73d03fc64458f7)" branch `NON_BLOCKING_IO_php8`
+### Version 8.1-dev "[c615b13](https://github.com/websupport-sk/pecl-memcache/commit/c615b13d2fcddf161e6a74ecf4911365402b11bf)" branch `NON_BLOCKING_IO_php8`
 
-> 2020-12-28 - commit
+> 2021-05-28 - commit
 >
-> 2021-01-07 - build
+> 2021-05-28 - build
 
-- [patched](36d7181.patch) with:
+- [patched](php8.patch) with:
   - [#80](https://github.com/websupport-sk/pecl-memcache/issues/80) Compatibility fix for PHP 8
 
-- `php-8.0.x_memcache.dll` with [php-src 8.0.1](https://github.com/php/php-src/tree/php-8.0.1)
+- `php-8.0.x_memcache.dll` with [php-src 8.0.6](https://github.com/php/php-src/tree/php-8.0.6)
 
 ### Version 8.0 "[36d7181](https://github.com/websupport-sk/pecl-memcache/commit/36d71814591db47c58800e7c24ad77df1bf14ab1)" branch `NON_BLOCKING_IO_php8`
 
