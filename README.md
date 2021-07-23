@@ -6,25 +6,27 @@
 > Personally use (and working fine...) **x64 avx nts** version.  
 > See [memcache.ini](memcache.ini) configuration file exemple
 
-## `VC15 & VS16`
-- VS16 : toolset 14.29.30037
-- VC15 : toolset 14.16.27023
+- **VS17**: toolset 14.30.30401
+- **VS16**: toolset 14.29.30132
+- **VC15**: toolset 14.16.27023
   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-- Window Kit 10.0.19041.0
+- Window Kit: 10.0.20348.0
 - **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
 
-### Version 8.1-dev "[c615b13](https://github.com/websupport-sk/pecl-memcache/commit/c615b13d2fcddf161e6a74ecf4911365402b11bf)" branch `NON_BLOCKING_IO_php8`
+### Version 8.1-dev "[ccf702b](https://github.com/websupport-sk/pecl-memcache/commit/ccf702b14b18fce18a1863e115a7b4c964df952e)" branch `NON_BLOCKING_IO_php8`
 
-> 2021-05-28 - commit
+> 2021-06-15- commit
 >
-> 2021-05-28 - build
+> 2021-07-23 - build
 
 - [patched](php8.patch) with:
   - [#80](https://github.com/websupport-sk/pecl-memcache/issues/80) Compatibility fix for PHP 8
 
-- `php-8.0.x_memcache.dll` with [php-src 8.0.6](https://github.com/php/php-src/tree/php-8.0.6)
+- `php-8.0.x_memcache.dll` with [php-src 8.0.8](https://github.com/php/php-src/tree/php-8.0.8)
 
 ### Version 8.0 "[36d7181](https://github.com/websupport-sk/pecl-memcache/commit/36d71814591db47c58800e7c24ad77df1bf14ab1)" branch `NON_BLOCKING_IO_php8`
+
+### _discontinued_ ![](https://placehold.it/15/f03c15/000000?text=+)
 
 > 2020-12-06 - commit
 >
@@ -69,24 +71,12 @@
 #### **Build Scripts** 
 
 - [@nono303/win-build-scripts](https://github.com/nono303/win-build-scripts)
+- cflags: `/O2 /GL /MD /Zi`
+- ldflags: `/LTCG /OPT:REF,ICF`
 
 #### Dependencies
 
-- [php-sdk-binary-tools 2.2.0](https://github.com/microsoft/php-sdk-binary-tools/tree/php-sdk-2.2.0)
-- [php-sdk 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/)
-
-#### CFLAGS add:
-
-- [/GL](https://msdn.microsoft.com/en-us/library/0zza0de8.aspx)
-- MD
-- /Zi
-- /O2
-
-#### LDFLAGS add:
-
-- [/LTCG ](https://msdn.microsoft.com/en-us/library/xbf3tbeh.aspx)
-- [/NODEFAULTLIB](https://msdn.microsoft.com/en-us/library/3tz4da4a.aspx):[libcmt.lib ](https://msdn.microsoft.com/en-us/library/abx4dbyh.aspx) /NODEFAULTLIB:MSVCRTD.lib
-- [/OPT:ICF](https://msdn.microsoft.com/en-us/library/bxwfs976.aspx)
+- Built and must be run with php deps in [php-sdk 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/) serie
 
 ----
 2016-05-18

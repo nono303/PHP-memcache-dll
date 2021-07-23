@@ -24,5 +24,3 @@ index cb3d086..402372f 100644
  #else
  #include <stdint.h>
  #endif
-diff --git a/src/php_memcache.h b/src/php_memcache.h
-index 4181849..4d1a89d 100644
