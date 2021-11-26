@@ -47,7 +47,7 @@
 
    - Check your cpu supported instructions with [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
 
-     > ![](D:\github\NONO_PHP-memcache-dll\avx.png)
+     > ![](./avx.png)
 
 ---
 
