@@ -27,7 +27,7 @@
 
 2) **x86** or **x64**:
 
-   - `php -i | findstr Compiler`
+   - `php -i | findstr Architecture`
 
      > Result exemple:
      >
