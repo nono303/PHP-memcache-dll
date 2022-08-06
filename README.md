@@ -17,7 +17,7 @@
 
 1) **VC14**, **VC15**, **VS16**, **VS17**:
 
-   - `php -i | grep Compiler`
+   - `php -i | findstr Compiler`
 
      > Result exemple:
      >
@@ -27,7 +27,7 @@
 
 2) **x86** or **x64**:
 
-   - `php -i | grep Compiler`
+   - `php -i | findstr Architecture`
 
      > Result exemple:
      >
@@ -35,7 +35,7 @@
 
 3) **TS** or **NTS**:
 
-   1) `php -i | grep Thread`
+   1) `php -i | findstr Thread`
 
       > Result exemple:
       >
