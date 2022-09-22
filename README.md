@@ -6,24 +6,25 @@
 > Personally use (and working fine...) **x64 avx nts** version.  
 > See [memcache.ini](memcache.ini) configuration file exemple
 
-- **VS17**: toolset 14.31.30818
-- **VS16**: toolset 14.29.30133
-- **VC15**: toolset 14.16.27023
-  - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-- Window Kit: 10.0.22000.0
 - **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx) releases** __for specified directory__
 
-### How to get the good version
+### How to get the [good version](bininfo.csv)
 
-1) **VC14**, **VC15**, **VS16**, **VS17**:
+1. **VC14**, **VC15**, **VS16**, **VS17**:
 
    - `php -i | findstr Compiler`
 
      > Result exemple:
      >
      > ​	`Compiler => MSVC 19.31.30818, untested`
-     >
-     > 19.**31** > toolset 14.**31** > **VS17**
+     
+     *MSVC2022 > 19.**3x** > toolset 14.**3x** > **VS17***
+     
+     *MSVC2019 > 19.**2x** > toolset 14.**2x** > **VS16***
+     
+     *MSVC2017 > 19.**1x** > toolset 14.**1x** > **VC15***
+     
+     *MSVC2015 > 19.**0x** > toolset 14.**0x** > **VC14***
 
 2) **x86** or **x64**:
 
@@ -51,21 +52,32 @@
 
 ---
 
-### Version 8.1-dev "[ccf702b](https://github.com/websupport-sk/pecl-memcache/commit/ccf702b14b18fce18a1863e115a7b4c964df952e)" branch `NON_BLOCKING_IO_php8`
+### Version 8.0.1 "[96910ce](https://github.com/websupport-sk/pecl-memcache/commit/96910ce9c4b59733d94162f422918256fe738e83)" branch `NON_BLOCKING_IO_php8`
 
-> 2021-06-15- commit
+> - **VS17**: toolset 14.34.31823
+> - **VS16**: toolset 14.29.30133
+> - **VC15**: toolset 14.16.27023
+>   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
+> - Window Kit: 10.0.22621.0
 >
-> 2021-11-25 - build
+> 2022-07-29 - commit
+>
+> 2022-09-22 - build
+>
+> - [PHP 8.0 & 8.1 patch](php8.patch) 
+>
+> - [PHP 8.2 patch](php82.patch)
 
-- [patched](php8.patch) with:
-  - [#80](https://github.com/websupport-sk/pecl-memcache/issues/80) Compatibility fix for PHP 8
-- `php-8.0.x_memcache.dll` with [php-src 8.0.8](https://github.com/php/php-src/tree/php-8.0.8) _(API 20200930)_
-- `php-8.1.x_memcache.dll` with [php-src 8.1.0](https://github.com/php/php-src/tree/php-8.1.0) _(API 20210902)_
+- `php-8.2.x_memcache.dll` with [php-src 8.2.0RC2](https://github.com/php/php-src/tree/php-8.2.0RC2) _(API 20220829)_
+- `php-8.1.x_memcache.dll` with [php-src 8.1.10](https://github.com/php/php-src/tree/php-8.1.10) _(API 20210902)_
+- `php-8.0.x_memcache.dll` with [php-src 8.0.23](https://github.com/php/php-src/tree/php-8.0.23) _(API 20200930)_
 
 ### Version 8.0 "[36d7181](https://github.com/websupport-sk/pecl-memcache/commit/36d71814591db47c58800e7c24ad77df1bf14ab1)" branch `NON_BLOCKING_IO_php8`
 
-### _discontinued_ ![](https://placehold.it/15/f03c15/000000?text=+)
+#### :warning: _discontinued_ 
 
+> :white_check_mark: **VC15 / VS16**
+>
 > 2020-12-06 - commit
 >
 > 2020-12-06 - build
@@ -75,22 +87,24 @@
 - `php-7.2.x_memcache.dll` with [php-src 7.2.34](https://github.com/php/php-src/tree/php-7.2.34) _(API 20170718)_
 - 
 
-### Version 4.0.5.2 "[4fdcbf9](https://github.com/websupport-sk/pecl-memcache/commit/4fdcbf9fdb6876b50cd73c614bf8130ee10ce2d2)" branch `NON_BLOCKING_IO_php7` 
+### Version 4.0.5.2 "[4fdcbf9](https://github.com/websupport-sk/pecl-memcache/commit/4fdcbf9fdb6876b50cd73c614bf8130ee10ce2d2)" branch `NON_BLOCKING_IO_php7`
 
-###          _discontinued_ ![](https://placehold.it/15/f03c15/000000?text=+)
+####          :warning: _discontinued_
 
+> :white_check_mark: **VC15 / VS16**
+>
 > 2020-09-24 - commit
 >
 > 2020-11-14 - build
 
 - `php-7.1.x_memcache.dll` with [php-src 7.1.33](https://github.com/php/php-src/tree/php-7.1.33) _(API 20160303)_
 
-##  `VC14` 
-
-###           _discontinued_ ![](https://placehold.it/15/f03c15/000000?text=+)
-
 ### Version [3.0.9-dev](https://github.com/websupport-sk/pecl-memcache/commit/4991c2fff22d00dc81014cc92d2da7077ef4bc86)
 
+#### :warning: _discontinued_
+
+> :white_check_mark: **VC14**
+>
 > 2016-12-08
 
 - `php-7.1.x_memcache.dll` with [php-src 7.1.0](https://github.com/php/php-src/tree/php-7.1.0) _(API 20160303)_

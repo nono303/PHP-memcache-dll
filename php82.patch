@@ -1,0 +1,35 @@
+diff --git "a/src/memcache_pool.h" "b/src/memcache_pool.h"
+index 1dbb28d..ec54c00 100644
+--- "a/src/memcache_pool.h"
++++ "b/src/memcache_pool.h"
+@@ -34,11 +34,7 @@
+ #include <sys/socket.h>
+ #endif
+ 
+-#ifdef PHP_WIN32
+-#include <main/php_stdint.h> 
+-#else
+ #include <stdint.h>
+-#endif
+ #include <string.h>
+ 
+ #include "php.h"
+diff --git "a/src/memcache_binary_protocol.c" "b/src/memcache_binary_protocol.c"
+index 60d828f..b0549f5 100644
+--- "a/src/memcache_binary_protocol.c"
++++ "b/src/memcache_binary_protocol.c"
+@@ -26,13 +26,12 @@
+ #define MMC_DEBUG 0
+ 
+ #ifdef PHP_WIN32
+-#include <main/php_stdint.h> 
+ #include <winsock2.h>
+ #else
+-#include <stdint.h>
+ #include <arpa/inet.h>
+ #include <netinet/in.h>
+ #endif
++#include <stdint.h>
+ #include "memcache_pool.h"
+ #include "ext/standard/php_smart_string.h"
+ 
