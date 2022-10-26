@@ -52,23 +52,34 @@
 
 ---
 
-### Version 8.0.1 "[96910ce](https://github.com/websupport-sk/pecl-memcache/commit/96910ce9c4b59733d94162f422918256fe738e83)" branch `NON_BLOCKING_IO_php8`
+### Version 8.2 "[26c0f51](https://github.com/websupport-sk/pecl-memcache/commit/26c0f5130050649762c550e0dac07d4f371e68d5)" branch `main`
 
-> - **VS17**: toolset 14.34.31823
+> - **VS17**: toolset 14.34.31932
 > - **VS16**: toolset 14.29.30133
 > - **VC15**: toolset 14.16.27023
 >   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 > - Window Kit: 10.0.22621.0
 >
-> 2022-07-29 - commit
+> 2022-10-25 - commit
 >
-> 2022-09-22 - build
->
-> - [PHP 8.0 & 8.1 patch](php8.patch) 
+> 2022-10-26 - build
 >
 > - [PHP 8.2 patch](php82.patch)
 
-- `php-8.2.x_memcache.dll` with [php-src 8.2.0RC2](https://github.com/php/php-src/tree/php-8.2.0RC2) _(API 20220829)_
+- `php-8.2.x_memcache.dll` with [php-src 8.2.0RC5](https://github.com/php/php-src/tree/php-8.2.0RC5) _(API 20220829)_
+
+### Version 8.0.1 "[96910ce](https://github.com/websupport-sk/pecl-memcache/commit/96910ce9c4b59733d94162f422918256fe738e83)" branch `NON_BLOCKING_IO_php8`
+
+#### :warning: _discontinued_ 
+
+> :white_check_mark: **VC15 / VS16 / VS17**
+> 
+> 2022-07-29 - commit
+> 
+> 2022-09-22 - build
+>
+> - [PHP 8.0 & 8.1 patch](php8.patch) 
+
 - `php-8.1.x_memcache.dll` with [php-src 8.1.10](https://github.com/php/php-src/tree/php-8.1.10) _(API 20210902)_
 - `php-8.0.x_memcache.dll` with [php-src 8.0.23](https://github.com/php/php-src/tree/php-8.0.23) _(API 20200930)_
 
