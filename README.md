@@ -17,14 +17,16 @@
      > Result exemple:
      >
      > ​	`Compiler => MSVC 19.31.30818, untested`
-     
+   
      *MSVC2022 > 19.**3x** > toolset 14.**3x** > **VS17***
-     
+   
      *MSVC2019 > 19.**2x** > toolset 14.**2x** > **VS16***
-     
+   
      *MSVC2017 > 19.**1x** > toolset 14.**1x** > **VC15***
-     
+   
      *MSVC2015 > 19.**0x** > toolset 14.**0x** > **VC14***
+   
+   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 2) **x86** or **x64**:
 
@@ -52,33 +54,30 @@
 
 ---
 
-### Version 8.2 "[26c0f51](https://github.com/websupport-sk/pecl-memcache/commit/26c0f5130050649762c550e0dac07d4f371e68d5)" branch `main`
+### Version 8.2 "[972b554](https://github.com/websupport-sk/pecl-memcache/commit/972b554c4a08acdebeae3591835e1a0ab3a7bd92)" branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ 
 
-> - **VS17**: toolset 14.34.31932
-> - **VS16**: toolset 14.29.30133
-> - **VC15**: toolset 14.16.27023
->   - MSVC redist  [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe) - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-> - Window Kit: 10.0.22621.0
+> - **VS17**: 14.39.33218
+> - **VS16**: 14.29.30133
+> - **VC15**: 14.16.27023
+> - **Window Kit**: 10.0.22621.0
 >
-> 2022-10-25 - commit
->
-> 2022-10-26 - build
->
-> - [PHP 8.2 patch](php82.patch)
+>2023-05-04 - commit
+>2023-11-24 - build
+>- [8.2 patch](82.patch)
 
-- `php-8.2.x_memcache.dll` with [php-src 8.2.0RC5](https://github.com/php/php-src/tree/php-8.2.0RC5) _(API 20220829)_
+- `php-8.2.x_memcache.dll` with [php-src 8.2.13](https://github.com/php/php-src/tree/php-8.2.13) _(API 20220829)_
+- `php-8.3.x_memcache.dll` with [php-src 8.3.0](https://github.com/php/php-src/tree/php-8.3.0) _(API 20230831)_
 
 ### Version 8.0.1 "[96910ce](https://github.com/websupport-sk/pecl-memcache/commit/96910ce9c4b59733d94162f422918256fe738e83)" branch `NON_BLOCKING_IO_php8`
 
 #### :warning: _discontinued_ 
 
 > :white_check_mark: **VC15 / VS16 / VS17**
-> 
+>
 > 2022-07-29 - commit
-> 
 > 2022-09-22 - build
 >
-> - [PHP 8.0 & 8.1 patch](php8.patch) 
+> - [8.0 patch](8.0.patch) 
 
 - `php-8.1.x_memcache.dll` with [php-src 8.1.10](https://github.com/php/php-src/tree/php-8.1.10) _(API 20210902)_
 - `php-8.0.x_memcache.dll` with [php-src 8.0.23](https://github.com/php/php-src/tree/php-8.0.23) _(API 20200930)_
@@ -90,7 +89,6 @@
 > :white_check_mark: **VC15 / VS16**
 >
 > 2020-12-06 - commit
->
 > 2020-12-06 - build
 
 - `php-7.4.x_memcache.dll` with [php-src 7.4.13](https://github.com/php/php-src/tree/php-7.4.13) _(API 20190902)_
