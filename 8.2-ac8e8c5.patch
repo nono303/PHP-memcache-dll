@@ -1,0 +1,555 @@
+diff --git a/src/memcache.c b/src/memcache.c
+index 524ca47..e73aa75 100644
+--- a/src/memcache.c
++++ b/src/memcache.c
+@@ -26,7 +26,7 @@
+ #include "php.h"
+ #include "php_ini.h"
+ #include "ext/standard/info.h"
+-#include "ext/standard/php_string.h"
++#include "Zend/zend_smart_string.h"
+ #include "php_memcache.h"
+ 
+ /* True global resources - no need for thread safety here */
+@@ -901,14 +901,25 @@ static void php_mmc_store(INTERNAL_FUNCTION_PARAMETERS, int op) /* {{{ */
+ 	zend_long flags = 0, exptime = 0, cas = 0;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oz|zlll", &mmc_object, memcache_pool_ce, &keys, &value, &flags, &exptime, &cas) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 6)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_ZVAL(keys)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_ZVAL(value)
++			Z_PARAM_LONG(flags)
++			Z_PARAM_LONG(exptime)
++			Z_PARAM_LONG(cas)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "z|zlll", &keys, &value, &flags, &exptime, &cas) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 5)
++			Z_PARAM_ZVAL(keys)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_ZVAL(value)
++			Z_PARAM_LONG(flags)
++			Z_PARAM_LONG(exptime)
++			Z_PARAM_LONG(cas)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+@@ -1050,28 +1061,42 @@ static void php_mmc_numeric(INTERNAL_FUNCTION_PARAMETERS, int deleted, int inver
+ 
+ 	if (mmc_object == NULL) {
+ 		if (deleted) {
+-			if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oz|l", &mmc_object, memcache_pool_ce, &keys, &value) == FAILURE) {
+-				return;
+-			}
++			ZEND_PARSE_PARAMETERS_START(2, 3)
++				Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++				Z_PARAM_ZVAL(keys)
++				Z_PARAM_OPTIONAL
++				Z_PARAM_LONG(value)
++			ZEND_PARSE_PARAMETERS_END();
+ 		}
+ 		else {
+-			if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oz|lll", &mmc_object, memcache_pool_ce, &keys, &value, &defval, &exptime) == FAILURE) {
+-				return;
+-			}
++			ZEND_PARSE_PARAMETERS_START(2, 5)
++				Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++				Z_PARAM_ZVAL(keys)
++				Z_PARAM_OPTIONAL
++				Z_PARAM_LONG(value)
++				Z_PARAM_LONG(defval)
++				Z_PARAM_LONG(exptime)
++			ZEND_PARSE_PARAMETERS_END();
+ 
+ 			defval_used = ZEND_NUM_ARGS() >= 4;
+ 		}
+ 	}
+ 	else {
+ 		if (deleted) {
+-			if (zend_parse_parameters(ZEND_NUM_ARGS(), "z|l", &keys, &value) == FAILURE) {
+-				return;
+-			}
++			ZEND_PARSE_PARAMETERS_START(1, 2)
++				Z_PARAM_ZVAL(keys)
++				Z_PARAM_OPTIONAL
++				Z_PARAM_LONG(value)
++			ZEND_PARSE_PARAMETERS_END();
+ 		}
+ 		else {
+-			if (zend_parse_parameters(ZEND_NUM_ARGS(), "z|lll", &keys, &value, &defval, &exptime) == FAILURE) {
+-				return;
+-			}
++			ZEND_PARSE_PARAMETERS_START(1, 4)
++				Z_PARAM_ZVAL(keys)
++				Z_PARAM_OPTIONAL
++				Z_PARAM_LONG(value)
++				Z_PARAM_LONG(defval)
++				Z_PARAM_LONG(exptime)
++			ZEND_PARSE_PARAMETERS_END();
+ 
+ 			defval_used = ZEND_NUM_ARGS() >= 3;
+ 		}
+@@ -1356,9 +1381,12 @@ static void php_mmc_connect(INTERNAL_FUNCTION_PARAMETERS, zend_bool persistent)
+ 	double timeout = MMC_DEFAULT_TIMEOUT;
+ 	zend_bool null_port;
+ 
+-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|l!d", &host, &host_len, &tcp_port, &null_port, &timeout) == FAILURE) {
+-		return;
+-	}
++	ZEND_PARSE_PARAMETERS_START(1, 3)
++		Z_PARAM_STRING(host, host_len)
++		Z_PARAM_OPTIONAL
++		Z_PARAM_LONG_OR_NULL(tcp_port, null_port)
++		Z_PARAM_DOUBLE(timeout)
++	ZEND_PARSE_PARAMETERS_END();
+ 
+ 	/* initialize pool and object if need be */
+ 	if (!mmc_object) {
+@@ -1615,10 +1643,16 @@ PHP_NAMED_FUNCTION(zif_memcache_pool_connect)
+ 
+ 	MEMCACHE_G(key_prefix)=get_key_prefix();
+ 
+-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|llbldl",
+-		&host, &host_len, &tcp_port, &udp_port, &persistent, &weight, &timeout, &retry_interval) == FAILURE) {
+-		return;
+-	}
++	ZEND_PARSE_PARAMETERS_START(1, 7)
++		Z_PARAM_STRING(host, host_len)
++		Z_PARAM_OPTIONAL
++		Z_PARAM_LONG(tcp_port)
++		Z_PARAM_LONG(udp_port)
++		Z_PARAM_BOOL(persistent)
++		Z_PARAM_LONG(weight)
++		Z_PARAM_DOUBLE(timeout)
++		Z_PARAM_LONG(retry_interval)
++	ZEND_PARSE_PARAMETERS_END();
+ 
+ 	mmc = php_mmc_pool_addserver(mmc_object, host, host_len, tcp_port, udp_port, weight, persistent, timeout, retry_interval, 1, NULL);
+ 	if (mmc == NULL) {
+@@ -1677,10 +1711,17 @@ PHP_NAMED_FUNCTION(zif_memcache_pool_addserver)
+ 
+ 	MEMCACHE_G(key_prefix)=get_key_prefix();
+ 
+-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|llbldlb",
+-		&host, &host_len, &tcp_port, &udp_port, &persistent, &weight, &timeout, &retry_interval, &status) == FAILURE) {
+-		return;
+-	}
++	ZEND_PARSE_PARAMETERS_START(1, 8)
++		Z_PARAM_STRING(host, host_len)
++		Z_PARAM_OPTIONAL
++		Z_PARAM_LONG(tcp_port)
++		Z_PARAM_LONG(udp_port)
++		Z_PARAM_BOOL(persistent)
++		Z_PARAM_LONG(weight)
++		Z_PARAM_DOUBLE(timeout)
++		Z_PARAM_LONG(retry_interval)
++		Z_PARAM_BOOL(status)
++	ZEND_PARSE_PARAMETERS_END();
+ 
+ 	mmc = php_mmc_pool_addserver(mmc_object, host, host_len, tcp_port, udp_port, weight, persistent, timeout, retry_interval, status, NULL);
+ 	if (mmc == NULL) {
+@@ -1705,9 +1746,9 @@ PHP_NAMED_FUNCTION(zif_memcache_pool_findserver)
+ 	unsigned int key_len;
+ 	zend_string *hostname;
+ 
+-	if (zend_parse_parameters(ZEND_NUM_ARGS(), "z", &zkey) == FAILURE) {
+-		return;
+-	}
++	ZEND_PARSE_PARAMETERS_START(1, 1)
++		Z_PARAM_ZVAL(zkey)
++	ZEND_PARSE_PARAMETERS_END();
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+ 		RETURN_FALSE;
+@@ -1741,16 +1782,31 @@ PHP_FUNCTION(memcache_add_server)
+ 	MEMCACHE_G(key_prefix)=get_key_prefix();
+ 
+ 	if (mmc_object) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|lbldlbz",
+-			&host, &host_len, &tcp_port, &persistent, &weight, &timeout, &retry_interval, &status, &failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 8)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++			Z_PARAM_BOOL(persistent)
++			Z_PARAM_LONG(weight)
++			Z_PARAM_DOUBLE(timeout)
++			Z_PARAM_LONG(retry_interval)
++			Z_PARAM_BOOL(status)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Os|lbldlbz", &mmc_object, memcache_ce,
+-			&host, &host_len, &tcp_port, &persistent, &weight, &timeout, &retry_interval, &status, &failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 9)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_ce)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++			Z_PARAM_BOOL(persistent)
++			Z_PARAM_LONG(weight)
++			Z_PARAM_DOUBLE(timeout)
++			Z_PARAM_LONG(retry_interval)
++			Z_PARAM_BOOL(status)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (failure_callback != NULL && Z_TYPE_P(failure_callback) != IS_NULL) {
+@@ -1788,16 +1844,27 @@ PHP_FUNCTION(memcache_set_server_params)
+ 	char *host;
+ 
+ 	if (mmc_object) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|ldlbz",
+-			&host, &host_len, &tcp_port, &timeout, &retry_interval, &status, &failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 6)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++			Z_PARAM_DOUBLE(timeout)
++			Z_PARAM_LONG(retry_interval)
++			Z_PARAM_BOOL(status)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Os|ldlbz", &mmc_object, memcache_pool_ce,
+-			&host, &host_len, &tcp_port, &timeout, &retry_interval, &status, &failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 7)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++			Z_PARAM_DOUBLE(timeout)
++			Z_PARAM_LONG(retry_interval)
++			Z_PARAM_BOOL(status)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -1865,16 +1932,15 @@ PHP_FUNCTION(memcache_set_failure_callback)
+ 	mmc_pool_t *pool;
+ 
+ 	if (mmc_object) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "z",
+-			&failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 1)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oz", &mmc_object, memcache_pool_ce,
+-			&failure_callback) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 2)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_ZVAL(failure_callback)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -1912,14 +1978,19 @@ PHP_FUNCTION(memcache_get_server_status)
+ 	char *host;
+ 
+ 	if (mmc_object) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|l", &host, &host_len, &tcp_port) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 2)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Os|l", &mmc_object, memcache_pool_ce, &host, &host_len, &tcp_port) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 3)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_STRING(host, host_len)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(tcp_port)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -1974,9 +2045,9 @@ PHP_FUNCTION(memcache_get_version)
+ 	mmc_request_t *request;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "O", &mmc_object, memcache_pool_ce) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 1)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+@@ -2144,14 +2215,21 @@ PHP_FUNCTION(memcache_get)
+ 	void *value_handler_param[3], *failover_handler_param[2];
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oz|z/z/", &mmc_object, memcache_pool_ce, &keys, &flags, &cas) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 4)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_ZVAL(keys)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_ZVAL_EX(flags, 0, 1)
++			Z_PARAM_ZVAL_EX(cas, 0, 1)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "z|z/z/", &keys, &flags, &cas) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 3)
++			Z_PARAM_ZVAL(keys)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_ZVAL_EX(flags, 0, 1)
++			Z_PARAM_ZVAL_EX(cas, 0, 1)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+@@ -2279,14 +2357,21 @@ PHP_FUNCTION(memcache_get_stats)
+ 	mmc_request_t *request;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "O|sll", &mmc_object, memcache_pool_ce, &type, &type_len, &slabid, &limit) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 4)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_STRING(type, type_len)
++			Z_PARAM_LONG(slabid)
++			Z_PARAM_LONG(limit)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "|sll", &type, &type_len, &slabid, &limit) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(0, 3)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_STRING(type, type_len)
++			Z_PARAM_LONG(slabid)
++			Z_PARAM_LONG(limit)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+@@ -2337,14 +2422,21 @@ PHP_FUNCTION(memcache_get_extended_stats)
+ 	mmc_request_t *request;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "O|sll", &mmc_object, memcache_pool_ce, &type, &type_len, &slabid, &limit) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 4)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_STRING(type, type_len)
++			Z_PARAM_LONG(slabid)
++			Z_PARAM_LONG(limit)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "|sll", &type, &type_len, &slabid, &limit) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(0, 3)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_STRING(type, type_len)
++			Z_PARAM_LONG(slabid)
++			Z_PARAM_LONG(limit)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool) || !pool->num_servers) {
+@@ -2394,14 +2486,19 @@ PHP_FUNCTION(memcache_set_compress_threshold)
+ 	double min_savings = MMC_DEFAULT_SAVINGS;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Ol|d", &mmc_object, memcache_pool_ce, &threshold, &min_savings) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 3)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_LONG(threshold)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_DOUBLE(min_savings)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "l|d", &threshold, &min_savings) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 2)
++			Z_PARAM_LONG(threshold)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_DOUBLE(min_savings)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -2461,9 +2558,9 @@ PHP_FUNCTION(memcache_close)
+ 	zval *mmc_object = getThis();
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "O", &mmc_object, memcache_pool_ce) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 1)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -2508,14 +2605,17 @@ PHP_FUNCTION(memcache_flush)
+ 	zend_long delay = 0;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "O|l", &mmc_object, memcache_pool_ce, &delay) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(1, 2)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(delay)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "|l", &delay) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(0, 1)
++			Z_PARAM_OPTIONAL
++			Z_PARAM_LONG(delay)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 
+ 	if (!mmc_get_pool(mmc_object, &pool)) {
+@@ -2553,13 +2653,16 @@ PHP_FUNCTION(memcache_set_sasl_auth_data)
+ 	size_t password_length;
+ 
+ 	if (mmc_object == NULL) {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "Oss", &mmc_object, memcache_pool_ce, &user, &user_length, &password, &password_length) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(3, 3)
++			Z_PARAM_OBJECT_OF_CLASS(mmc_object, memcache_pool_ce)
++			Z_PARAM_STRING(user, user_length)
++			Z_PARAM_STRING(password, password_length)
++		ZEND_PARSE_PARAMETERS_END();
+ 	} else {
+-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "ss", &user, &user_length, &password, &password_length) == FAILURE) {
+-			return;
+-		}
++		ZEND_PARSE_PARAMETERS_START(2, 2)
++			Z_PARAM_STRING(user, user_length)
++			Z_PARAM_STRING(password, password_length)
++		ZEND_PARSE_PARAMETERS_END();
+ 	}
+ 	if (user_length < 1 || password_length < 1) {
+ 		RETURN_FALSE;
+diff --git a/src/memcache_binary_protocol.c b/src/memcache_binary_protocol.c
+index 77a93f9..38f32c9 100644
+--- a/src/memcache_binary_protocol.c
++++ b/src/memcache_binary_protocol.c
+@@ -26,7 +26,7 @@
+ #define MMC_DEBUG 0
+ 
+ #ifdef PHP_WIN32
+-# if defined(_MSC_VER) && _MSC_VER < 1920
++# if defined(_MSC_VER) && _MSC_VER < 1910
+ #  include "win32/php_stdint.h"
+ # else
+ #  include <stdint.h>
+diff --git a/src/memcache_pool.c b/src/memcache_pool.c
+index bd1429c..767fcb2 100644
+--- a/src/memcache_pool.c
++++ b/src/memcache_pool.c
+@@ -35,7 +35,6 @@
+ #include "php_network.h"
+ #include "ext/standard/crc32.h"
+ #include "ext/standard/php_var.h"
+-#include "ext/standard/php_string.h"
+ #include "Zend/zend_smart_string.h"
+ #include "zend_smart_str.h"
+ #include "memcache_pool.h"
+diff --git a/src/memcache_pool.h b/src/memcache_pool.h
+index 106bf4e..cbf1380 100644
+--- a/src/memcache_pool.h
++++ b/src/memcache_pool.h
+@@ -35,7 +35,7 @@
+ #endif
+ 
+ #ifdef PHP_WIN32
+-# if defined(_MSC_VER) && _MSC_VER < 1920
++# if defined(_MSC_VER) && _MSC_VER < 1910
+ #  include "win32/php_stdint.h"
+ # else
+ #  include <stdint.h>
+diff --git a/src/memcache_session.c b/src/memcache_session.c
+index 55a6e82..970854f 100644
+--- a/src/memcache_session.c
++++ b/src/memcache_session.c
+@@ -29,7 +29,7 @@
+ #include "php_variables.h"
+ 
+ #include "SAPI.h"
+-#include "Zend/zend_smart_string.h"
++#include "memcache_pool.h"
+ #include "ext/standard/url.h"
+ #include "ext/session/php_session.h"
+ #ifdef PHP_WIN32
+From 0fa9b4a7f50bb31da7eb45ed3b3eba82f985f06c Mon Sep 17 00:00:00 2001
+From: Remi Collet <remi@remirepo.net>
+Date: Wed, 15 Oct 2025 09:56:40 +0200
+Subject: [PATCH] clean deprecated ini
+
+---
+ tests/pecl63142.phpt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/tests/pecl63142.phpt b/tests/pecl63142.phpt
+index 5eef5f9..bea5697 100644
+--- a/tests/pecl63142.phpt
++++ b/tests/pecl63142.phpt
+@@ -2,9 +2,6 @@
+ PECL bug #63142 (memcache 3.0.7 segfaults with object (un)serialization)
+ --SKIPIF--
+ <?php include 'connect.inc'; ?>
+---INI--
+-;fix me later
+-report_memleaks=0
+ --FILE--
+ <?php
+ 

@@ -3,13 +3,13 @@
 - **src**: https://github.com/websupport-sk/pecl-memcache
 - **doc:** https://www.php.net/manual/en/book.memcache.php
 
-> *Personally use (and working fine...) **x64 avx nts** version* 
+> *Personally use (and working fine...) **vs18 x64 avx2 ts** version* 
 
 :fast_forward: See [memcache.ini](memcache.ini) configuration file exemple
 
 ## How to get the [good version](bininfo.csv)
 
-#### **VC14**, **VC15**, **VS16**, **VS17**
+#### **VC14**, **VC15**, **VS16**, **VS17**, **VS18**
 
    - `php -i | findstr Compiler`
 
@@ -19,13 +19,15 @@
      >
      > ​	`Compiler =>  2022`
    
-     **`VS17`** = *Visual C++ 2022 > MSVC 19.**3x** & 19.**4x** > toolset 14.**3x** & 14.**4x***
+     **`VS18`** = *Visual Studio 2026* > MSVC 19.**5x** > toolset 14.**5x**
    
-     **`VS16`** = *Visual C++ 2019 > MSVC 19.**2x** > toolset 14.**2x***
+     **`VS17`** = *Visual Studio 2022 > MSVC 19.**3x** & 19.**4x** > toolset 14.**3x** & 14.**4x***
    
-     **`VC15`** = *Visual C++ 2017 > MSVC 19.**1x** > toolset 14.**1x***
+     **`VS16`** = *Visual Studio 2019 > MSVC 19.**2x** > toolset 14.**2x***
    
-     **`VC14`** = *Visual C++ 2015 > MSVC 19.**0x** > toolset 14.**0x***
+     **`VC15`** = *Visual Studio 2017 > MSVC 19.**1x** > toolset 14.**1x***
+     
+     **`VC14`** = *Visual Studio 2015 > MSVC 19.**0x** > toolset 14.**0x***
 
 #### **x86** or **x64**
 
@@ -47,7 +49,27 @@
       
       **`TS`** = *enabled*
 
-#### **AVX**, **AVX2** or not (**SSE2**): 
+#### PHP Version
+
+   1. `php -i | findstr PHP.API`
+
+      > Result exemple:
+      >
+      > ​	`PHP API => 20250925`
+
+      **`20250925`** = *8.5*
+
+      **`20240924`** = *8.4*
+
+      **`20230831`** = *8.3*
+
+      **`20220829`** = *8.2*
+
+      **`20210902`** = *8.1*
+
+      **`20200930`** = *8.0*
+
+#### **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)**, **[AVX2](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)** or not (**SSE2**): 
 
    - Check your cpu supported instructions with [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
 
@@ -59,25 +81,35 @@
 
 ### :white_check_mark: **active**
 
+#### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ 
+
+> :fast_forward: **VS17 / VS18**
+>
+> `x64` only
+>
+> - [patch](82-ac8e8c5.patch)
+
+-  `php-8.4.x_memcache.dll` with [php-src 8.4.15](https://github.com/php/php-src/tree/php-8.4.15) _(API 20240924)_
+-  `php-8.5.x_memcache.dll` with [php-src 8.5.0](https://github.com/php/php-src/tree/php-8.5.0) _(API 20250925)_
+
+###  :red_circle: ​ **discontinued** 
+
 #### Version 8.2 "[972b554](https://github.com/websupport-sk/pecl-memcache/commit/972b554c4a08acdebeae3591835e1a0ab3a7bd92)" - *2023-05-04* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ 
 
 > :fast_forward: ​ **VC15 / VS16 / VS17**
 >
-> - [8.2 patch](82.patch)
+> - [patch](8.2-972b554.patch)
 
 -  `php-8.2.x_memcache.dll` with [php-src 8.2.13](https://github.com/php/php-src/tree/php-8.2.13) _(API 20220829)_ 
 -  `php-8.3.x_memcache.dll` with [php-src 8.3.0](https://github.com/php/php-src/tree/php-8.3.0) _(API 20230831)_
 -  `php-8.4.x_memcache.dll` with [php-src 8.4.0RC1](https://github.com/php/php-src/tree/php-8.4.0RC1) _(API 20240924)_
    -  :warning: *only `x64` for `vs16` & `vc17`*
 
-
-###  :red_circle: ​ **discontinued** 
-
 #### Version 8.0.1 "[96910ce](https://github.com/websupport-sk/pecl-memcache/commit/96910ce9c4b59733d94162f422918256fe738e83)" - *2022-07-29* - branch `NON_BLOCKING_IO_php8`
 
 > :fast_forward: **VC15 / VS16 / VS17**
 >
-> - [8.0 patch](8.0.patch) 
+> - [patch](8.0.patch) 
 
 - `php-8.1.x_memcache.dll` with [php-src 8.1.10](https://github.com/php/php-src/tree/php-8.1.10) _(API 20210902)_
 - `php-8.0.x_memcache.dll` with [php-src 8.0.23](https://github.com/php/php-src/tree/php-8.0.23) _(API 20200930)_
