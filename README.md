@@ -64,7 +64,7 @@
 
 > :fast_forward: **VS17 / VS18**  
 > `x64`  
-> :adhesive_bandage: [patch](8.2-ac8e8c5.patch)
+> :adhesive_bandage: [patch](8.2-ac8e8c5.patch)  
 > :label: [2025-11-22](https://github.com/nono303/PHP-memcache-dll/releases/tag/2025-11-22)  
 
 -  `php-8.4.x_memcache.dll` with [php-src 8.4.15](https://github.com/php/php-src/tree/php-8.4.15)  
