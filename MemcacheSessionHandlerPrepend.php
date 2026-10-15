@@ -4,9 +4,9 @@
 		private $ttl;
 		private $prefix;
 
-		public function __construct(array $options = array() ) {
+		public function __construct(array $options = []) {
 			$this->memcache = new MemcachePool();
-			if ( $diff = array_diff( array_keys( $options ), array( 'prefix', 'expiretime' ) ) ) 
+			if ($diff = array_diff(array_keys($options), ['prefix', 'expiretime']))
 				throw new \InvalidArgumentException( sprintf('The following options are not supported "%s"',implode( ', ', $diff )));
 			$this->ttl    = isset( $options[ 'expiretime' ] ) ? (int)$options[ 'expiretime' ] : ini_get("session.gc_maxlifetime");
 			$this->prefix = isset( $options[ 'prefix' ] ) ? $options[ 'prefix' ] : 'sf2s-';
@@ -18,7 +18,8 @@
 		}
 
 		public function close() : bool {
-			$this->memcache->close();
+			if($this->memcache)
+				$this->memcache->close();
 			return true;
 		}
 		public function read( $sessionId ) : string|false {
@@ -42,5 +43,5 @@
 			return true;
 		}
 	}
-	session_set_save_handler(new MemcacheSessionHandler(array('prefix' => 'phpses-')), true);
+	session_set_save_handler(new MemcacheSessionHandler(['prefix' => 'phpses-']), true);
 ?>
