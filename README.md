@@ -51,8 +51,7 @@
 ### :white_check_mark: **active**  
 
 #### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ + _with [PR120](https://github.com/websupport-sk/pecl-memcache/pull/120)_  + _with [PR122](https://github.com/websupport-sk/pecl-memcache/pull/122)_  
-> :fast_forward: **VS17 / VS18**  
-> `x64`  
+> :fast_forward: `x64` **VS17 / VS18**  
 > :adhesive_bandage: [patch](8.2-ac8e8c5_103-120-122.patch)  
 > :label: [2026-10-15](https://github.com/nono303/PHP-memcache-dll/releases/tag/2026-10-15) 
 
@@ -62,8 +61,7 @@
 
 #### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_  
 
-> :fast_forward: **VS17 / VS18**  
-> `x64`  
+> :fast_forward: `x64` **VS17 / VS18**  
 > :adhesive_bandage: [patch](8.2-ac8e8c5.patch)  
 > :label: [2025-11-22](https://github.com/nono303/PHP-memcache-dll/releases/tag/2025-11-22)  
 
