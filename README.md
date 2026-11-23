@@ -35,7 +35,7 @@
       > 	`PHP API => 20261112`  
   
       **`20261112`** = *8.6*  
-  **`20250925`** = *8.5*  
+      **`20250925`** = *8.5*  
       **`20240924`** = *8.4*  
       **`20230831`** = *8.3*  
       **`20220829`** = *8.2*  
@@ -49,9 +49,9 @@
 
 ### :white_check_mark: **active**  
 
-#### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ + _[PR120](https://github.com/websupport-sk/pecl-memcache/pull/120)_  + _[PR122](https://github.com/websupport-sk/pecl-memcache/pull/122)_  
+#### Version 8.2 "[b2f03e8](https://github.com/websupport-sk/pecl-memcache/commit/b2f03e8789375133a744323b7a0a47755c733480)" - *2025-11-23* - branch `main` with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_
 > :fast_forward: `x64` **VS17 / VS18**  
-> :adhesive_bandage: [patch](8.2-ac8e8c5_103-120-122.patch)  
+> :adhesive_bandage: [patch](8.2-b2f03e8.patch)  
 > :label: [2026-11-23](https://github.com/nono303/PHP-memcache-dll/releases/tag/2026-11-23) 
 > Statically linked with [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)
 
@@ -119,7 +119,7 @@
 - Built and must be run with php deps in [php-sdk 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/) serie  
 ----
 2016-05-18  
-> I’ve noticed __2 bugs__ when implementing memcache session.handler for  
+> For PHP <= **8.5** _(see [#122](https://github.com/websupport-sk/pecl-memcache/pull/122))_, I’ve noticed __2 bugs__ when implementing memcache session.handler
 ```  
 session.save_handler = memcache  
 session.save_path = "tcp://127.0.0.1:11211"  
