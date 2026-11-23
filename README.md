@@ -7,7 +7,7 @@
 #### **VC14**, **VC15**, **VS16**, **VS17**, **VS18**  
    - `php -i | findstr /i Compiler`  
      > 	Result exemples:  
-     > 	`COMPILER=MSVC 195136260`  
+     > 	`COMPILER=MSVC 195237029`  
      > 	`Compiler => Visual C++ 2026`  
 
      **`VS18`** = *Visual Studio 2026* > MSVC 19.**5x** > toolset 14.**5x**  
@@ -32,11 +32,10 @@
    1. `php -i | findstr /i PHP.API`  
   
       > Result exemple:  
-      > ​	`PHP API => 20250925`  
+      > 	`PHP API => 20261112`  
   
-      **`20260924`** = *8.6*  
-  
-      **`20250925`** = *8.5*  
+      **`20261112`** = *8.6*  
+  **`20250925`** = *8.5*  
       **`20240924`** = *8.4*  
       **`20230831`** = *8.3*  
       **`20220829`** = *8.2*  
@@ -53,10 +52,11 @@
 #### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_ + _[PR120](https://github.com/websupport-sk/pecl-memcache/pull/120)_  + _[PR122](https://github.com/websupport-sk/pecl-memcache/pull/122)_  
 > :fast_forward: `x64` **VS17 / VS18**  
 > :adhesive_bandage: [patch](8.2-ac8e8c5_103-120-122.patch)  
-> :label: [2026-10-15](https://github.com/nono303/PHP-memcache-dll/releases/tag/2026-10-15) 
+> :label: [2026-11-23](https://github.com/nono303/PHP-memcache-dll/releases/tag/2026-11-23) 
+> Statically linked with [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)
 
--  `php-8.5.x_memcache.dll` with [php-src 8.5.12RC1](https://github.com/php/php-src/tree/php-8.5.12RC1)  
--  `php-8.6.x_memcache.dll` with [php-src 8.6.0RC3](https://github.com/php/php-src/tree/php-8.6.0RC3)  
+-  `php-8.5.x_memcache.dll` with [php-src 8.5.13](https://github.com/php/php-src/tree/php-8.5.13)  
+-  `php-8.6.x_memcache.dll` with [php-src 8.6.0](https://github.com/php/php-src/tree/php-8.6.0)  
 ###  :red_circle: ​ **discontinued**  
 
 #### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_  
@@ -130,7 +130,7 @@ so i've set ```memcache.lock_timeout = 1``` but that doesn’t resolve the probl
 All that test have been done with phpmyadmin which write complex data in session  
 
 So you can find [MemcacheSessionHandlerPrepend.php](MemcacheSessionHandlerPrepend.php) a MemcacheSessionHandler implementing SessionHandlerInterface to add to your `php.ini` with config:  
-```  
+```
 session.save_handler = user  
 auto_prepend_file = c:/path/to/MemcacheSessionHandlerPrepend.php  
 ; session.save_path =  
