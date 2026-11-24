@@ -17,23 +17,18 @@
      **`VC15`** = *Visual Studio 2017* > MSVC 19.**1x** > toolset 14.**1x**  
      **`VC14`** = *Visual Studio 2015* > MSVC 19.**0x** > toolset 14.**0x**  
 #### **x86** or **x64**  
-   - `php -i | findstr /i Architecture`  
-  
-     > Result exemple:  
-     > ​	`Architecture => x64`  
+   - `php -i | findstr /i Architecture`   
+      > Result exemple: `Architecture => x64`  
+
 #### **TS** or **NTS**  
-   1) `php -i | findstr /i Thread`  
-  
-      > Result exemple:  
-      > ​	`Thread Safety => disabled`  
-  
+   - `php -i | findstr /i Thread`  
+      > Result exemple: `Thread Safety => disabled`  
+
       **`NTS`** = *disabled*  
       **`TS`** = *enabled*  
 #### PHP Version  
-   1. `php -i | findstr /i PHP.API`  
-  
-      > Result exemple:  
-      > 	`PHP API => 20261112`  
+   - `php -i | findstr /i PHP.API`  
+      > Result exemple: `PHP API => 20261112`  
   
       **`20261112`** = *8.6*  
       **`20250925`** = *8.5*  
@@ -44,39 +39,32 @@
       **`20200930`** = *8.0*  
 #### **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)**, **[AVX2](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)** or not (**SSE2**):  
    - Check your cpu supported instructions with [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)  
-     > ![](./avx.png)  
+   
+      ![](./avx.png)  
 
 ### Prerequisite
-
-- **Version < 8.6** _(php version < 8.5)_
-
+- :green_circle: **Version >= 8.6** _(php version >= 8.5)_  
+   Released DLLs are **statically linked to zlib** to avoid issues related to the combination of PHP’s shared zlib support and the difficulties in naming zlib DLLs across different versions _(`zlib.dll`, `zlib1.dll`, `z.dll`; `libz.dll`)_
+- :black_circle: **Version < 8.6** _(php version < 8.5)_  
    **zlib** extension must be enable and **not shared**
-
    - `php --ri zlib | findstr /i support`  
-
      > Result must be: `ZLib Support => enabled`  
 
    - `php --ri zlib | findstr /i linked`  
-
      > Result must be empty  
-
-- **Version >= 8.6** _(php version >= 8.5)_
-
-   Released DLLs are **statically linked to zlib** to avoid issues related to the combination of PHP’s shared zlib support and the difficulties in naming zlib DLLs across different versions _(`zlib.dll`, `zlib1.dll`, `z.dll`; `libz.dll`)_
 ---
-## Release  
-
-### :white_check_mark: **active**  
+## :green_circle: **active**  
 
 #### Version [8.6](https://github.com/websupport-sk/pecl-memcache/releases/tag/8.6) - *2025-11-23* - with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_
 > :fast_forward: `x64` **VS17 / VS18**  
-> statically linked with [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)
+> :link: [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)  
 > :adhesive_bandage: [patch](8.6.patch)  
-> :label: [8.6](https://github.com/nono303/PHP-memcache-dll/releases/tag/8.6) 
+> :label: [8.6](https://github.com/nono303/PHP-memcache-dll/releases/tag/8.6)
 
 -  `php-8.5.x_memcache.dll` with [php-src 8.5.13](https://github.com/php/php-src/tree/php-8.5.13)  
 -  `php-8.6.x_memcache.dll` with [php-src 8.6.0](https://github.com/php/php-src/tree/php-8.6.0)  
-###  :red_circle: ​ **discontinued**  
+---
+##  :black_circle: ​ **discontinued**  
 
 #### Version 8.2 "[ac8e8c5](https://github.com/websupport-sk/pecl-memcache/commit/ac8e8c521a18aae14c8f2859694536ead304ce97)" - *2025-08-06* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_  
 
@@ -88,8 +76,7 @@
 -  `php-8.5.x_memcache.dll` with [php-src 8.5.0](https://github.com/php/php-src/tree/php-8.5.0)  
 
 #### Version 8.2 "[972b554](https://github.com/websupport-sk/pecl-memcache/commit/972b554c4a08acdebeae3591835e1a0ab3a7bd92)" - *2023-05-04* - branch `main` _with [PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_  
-> :fast_forward: **VC15 / VS16 / VS17**  
-> :warning: *only `x64` for `vs16` & `vc17`*  
+> :fast_forward: **VC15 / `x64` VS16 / VS17**  
 > :adhesive_bandage: [patch](8.2-972b554.patch)  
 > :label: [8.2-972b554](https://github.com/nono303/PHP-memcache-dll/releases/tag/8.2-972b554)
 
