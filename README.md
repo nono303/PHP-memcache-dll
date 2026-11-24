@@ -1,5 +1,6 @@
 # PHP - pecl-memcache Windows binaries  
 - **src**: https://github.com/websupport-sk/pecl-memcache  
+- **build**: https://github.com/nono303/win-build-scripts
 - **doc:** https://www.php.net/manual/en/book.memcache.php  
 > *Personally use (and working fine...) **vs18 x64 avx2 ts** version*  
 :fast_forward: See [memcache.ini](memcache.ini) configuration file exemple  
@@ -44,16 +45,34 @@
 #### **[AVX](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)**, **[AVX2](https://msdn.microsoft.com/fr-fr/library/jj620901.aspx)** or not (**SSE2**):  
    - Check your cpu supported instructions with [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)  
      > ![](./avx.png)  
+
+### Prerequisite
+
+- **Version < 8.6** _(php version < 8.5)_
+
+   **zlib** extension must be enable and **not shared**
+
+   - `php --ri zlib | findstr /i support`  
+
+     > Result must be: `ZLib Support => enabled`  
+
+   - `php --ri zlib | findstr /i linked`  
+
+     > Result must be empty  
+
+- **Version >= 8.6** _(php version >= 8.5)_
+
+   Released DLLs are **statically linked to zlib** to avoid issues related to the combination of PHP’s shared zlib support and the difficulties in naming zlib DLLs across different versions _(`zlib.dll`, `zlib1.dll`, `z.dll`; `libz.dll`)_
 ---
 ## Release  
 
 ### :white_check_mark: **active**  
 
-#### Version 8.2 "[b2f03e8](https://github.com/websupport-sk/pecl-memcache/commit/b2f03e8789375133a744323b7a0a47755c733480)" - *2025-11-23* - branch `main` with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_
+#### Version [8.6](https://github.com/websupport-sk/pecl-memcache/releases/tag/8.6) - *2025-11-23* - with _[PR103](https://github.com/websupport-sk/pecl-memcache/pull/103)_
 > :fast_forward: `x64` **VS17 / VS18**  
-> :adhesive_bandage: [patch](8.2-b2f03e8.patch)  
-> :label: [2026-11-23](https://github.com/nono303/PHP-memcache-dll/releases/tag/2026-11-23) 
-> Statically linked with [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)
+> statically linked with [zlib 1.4](https://github.com/madler/zlib/tree/v1.4)
+> :adhesive_bandage: [patch](8.6.patch)  
+> :label: [8.6](https://github.com/nono303/PHP-memcache-dll/releases/tag/8.6) 
 
 -  `php-8.5.x_memcache.dll` with [php-src 8.5.13](https://github.com/php/php-src/tree/php-8.5.13)  
 -  `php-8.6.x_memcache.dll` with [php-src 8.6.0](https://github.com/php/php-src/tree/php-8.6.0)  
@@ -104,19 +123,26 @@
 - `php-7.0.x_memcache.dll` with [php-src 7.0.6](https://github.com/php/php-src/tree/php-7.0.6)  
 ----
 ### Check your version  
-- Look for **'Product name'** in detailed information of the dll file in Windows explorer  
+- Look for **'File Description'** _(first line)_in detailed information of the dll file in Windows explorer  
 
   ![image-20201114113957010](README_1.png)  
 - Look at `php_info()`  
   
   ![image-20201114113957010](README_2.png)  
+  
+  ``````powershell
+  >php --ri memcache | findstr /i version
+  
+  Version => 8.6 | branch: main | commit: 56bef9e | date: 2026-11-23 | https://github.com/nono303/PHP-memcache-dll
+  ``````
 - Look at [bininfo.csv](./bininfo.csv)  
-### Build Scripts  
-- [@nono303/win-build-scripts](https://github.com/nono303/win-build-scripts)  
-- cflags: `/O2 /GL /MD /Zi`  
-- ldflags: `/LTCG /OPT:REF,ICF`  
-### Dependencies  
-- Built and must be run with php deps in [php-sdk 'staging'](https://windows.php.net/downloads/php-sdk/deps/series/) serie  
+- Check with Powershell
+
+  ``````powershell
+  >(Get-Item .\php-8.6.x_memcache.dll).VersionInfo | Format-List FileDescription
+  
+  FileDescription : arch:x64-avx2 vcver:14.52[vs18] tag:8.6 date:2026-11-23 phpver:8.6-NTS
+  ``````
 ----
 2016-05-18  
 > For PHP <= **8.5** _(see [#122](https://github.com/websupport-sk/pecl-memcache/pull/122))_, I’ve noticed __2 bugs__ when implementing memcache session.handler
